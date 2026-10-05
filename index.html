@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <span class="lens lens-sm" aria-hidden="true"></span>
+            <div><strong class="brand-name">POKÉDEX</strong></div>
+        </div>
+        <nav aria-label="Principal"><a href="#">Kanto Dex</a><a href="#">Tipos</a><a href="#">Gritos</a><a href="#">Diagnóstico</a></nav>
+        <span class="chip-id">ID / NOMBRE #001-151</span>
+    </header>
+
+    <div class="toolbar">
+        <form id="form1" class="search" role="search">
+            <label for="pokedex-number" class="sr-only">Número o nombre del Pokémon</label>
+            <input type="text" id="pokedex-number" name="pokedex-number" placeholder="Buscar Pokémon (nº o nombre)…" required autocomplete="off">
+            <button type="submit" class="btn-flat">Buscar</button>
+        </form>
+        <div class="filters" id="filters" role="group" aria-label="Filtrar por tipo">
+            <span>Filtro:</span>
+            <button type="button" class="f f-all active" data-type="">Todos</button>
+            <button type="button" class="f f-grass" data-type="grass">Planta</button>
+            <button type="button" class="f f-fire" data-type="fire">Fuego</button>
+            <button type="button" class="f f-water" data-type="water">Agua</button>
+            <button type="button" class="f f-electric" data-type="electric">Eléc.</button>
+            <button type="button" class="f f-psychic" data-type="psychic">Psi</button>
+        </div>
+    </div>
+
+    <main class="device">
+        <div class="device-top">
+            <span class="lens lens-lg" aria-hidden="true"></span>
+            <span class="leds" aria-hidden="true"><i class="r"></i><i class="y"></i><i class="g"></i></span>
+            <span class="device-tag">Kanto OS · Unidad replicadora</span>
+        </div>
+
+        <div class="device-body">
+            <!-- Izquierda: escáner -->
+            <section class="panel left">
+                <div class="bezel">
+                    <div class="bezel-bar"><span><i></i><i></i></span><em>Matriz de escáner</em></div>
+                    <div class="crt" id="screen" aria-live="polite">
+                        <p class="crt-info" id="crtInfo">Cargando…</p>
+                        <img id="art" alt="" hidden>
+                    </div>
+                    <div class="bezel-foot"><i class="dot"></i><span class="vents"></span></div>
+                </div>
+                <div class="pager">
+                    <button type="button" class="btn-dark" id="btnPrevPoke">← Anterior</button>
+                    <button type="button" class="btn-dark" id="btnNextPoke">Siguiente →</button>
+                </div>
+                <div class="controls"><span class="info-btn">Info</span><span class="pills"><i></i><i></i></span><span class="dpad" aria-hidden="true"></span></div>
+            </section>
+
+            <!-- Derecha: datos -->
+            <section class="panel right">
+                <div class="data" id="detail" aria-live="polite"><p>Busca un Pokémon o elige uno de la lista.</p></div>
+
+                <div class="keypad-box">
+                    <h2>Acceso directo numérico</h2>
+                    <div class="keypad" id="keypad"></div>
+                </div>
+
+                <div class="catalog">
+                    <div class="catalog-head"><h2>Catálogo regional</h2><span id="count">151 especies</span></div>
+                    <div class="catalog-list" id="list"></div>
+                    <div class="catalog-nav">
+                        <button class="btn-dark" id="btnPrev" type="button">Anterior</button>
+                        <span id="pageInfo"></span>
+                        <button class="btn-dark" id="btnNext" type="button">Siguiente</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="foot"><span>Registrados: 151 / 151 · Índice Kanto</span><span>Silph Co. &amp; Prof. Oak Labs</span></footer>
+    <script type="module" src="./scripts.js"></script>
+</body>
+</html>
